@@ -1,3 +1,32 @@
+Metadata-Version: 2.4
+Name: margin-call-sim
+Version: 1.1.1
+Summary: A narrative-driven financial margin risk simulator inspired by Margin Call (2011)
+Home-page: https://github.com/MrBinnacle/margin-call-risk-model
+Author: MrBinnacle
+Author-email: contact@yourdomain.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: streamlit
+Requires-Dist: pytest
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](https://pytest.org)
 
 

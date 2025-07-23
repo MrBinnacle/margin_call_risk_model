@@ -1,9 +1,10 @@
-
 import argparse
 import pandas as pd
 import logging
-from var_engine import run_var_analysis
-from config import DEFAULT_CONFIDENCE_LEVEL, DEFAULT_STRESS_MULTIPLIER
+
+# ✅ FIXED IMPORT PATHS (use absolute module imports within the package)
+from margin_call_sim.var_engine import run_var_analysis
+from margin_call_sim.config import DEFAULT_CONFIDENCE_LEVEL, DEFAULT_STRESS_MULTIPLIER
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

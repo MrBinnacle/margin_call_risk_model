@@ -1,0 +1,2 @@
+[console_scripts]
+margincall = margin_call_sim.cli:main
