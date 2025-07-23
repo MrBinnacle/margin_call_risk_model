@@ -20,7 +20,7 @@ setup(
     author="MrBinnacle",
     author_email="contact@yourdomain.com",
     description="A narrative-driven financial margin risk simulator inspired by Margin Call (2011)",
-    long_description=open("README.md").read(),
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/MrBinnacle/margin_call_risk_model",
     classifiers=[
