@@ -23,9 +23,13 @@ def main(args=None):
         if 'Price' not in df.columns:
             raise ValueError("Input file must contain a 'Price' column.")
 
-        var, stressed_var = run_var_analysis(df, parsed.confidence, parsed.stress)
+        var, stressed_var, cvar, stressed_cvar, _ = run_var_analysis(
+            df, parsed.confidence, parsed.stress
+        )
         print(f"VaR ({parsed.confidence:.0%}): {var:.4f}")
         print(f"Stressed VaR (x{parsed.stress}): {stressed_var:.4f}")
+        print(f"CVaR: {cvar:.4f}")
+        print(f"Stressed CVaR: {stressed_cvar:.4f}")
 
     except Exception as e:
         logger.error(f"Failed to run analysis: {e}")
