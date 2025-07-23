@@ -24,12 +24,13 @@ Zen mode: activated.
 """
 
 
-import streamlit as st
-import pandas as pd
-import numpy as np
 import json
+
 import altair as alt
-from margin_call_sim.core.var_engine import run_var_analysis
+import pandas as pd
+import streamlit as st
+
+from margin_call_sim.var_engine import run_var_analysis
 
 st.set_page_config(page_title="📉 Margin Call Simulator Dashboard", layout="wide")
 st.title("📉 Margin Call Simulator Dashboard")
@@ -64,7 +65,6 @@ if uploaded_file:
         if st.button("Run Simulation"):
             var, svar, cvar, scvar, summary = run_var_analysis(df, confidence, stress)
             liq_day = summary["liq_day"]
-            prices = df["Price"].values
 
             # Plot with Altair
             st.subheader("📈 Price Simulation")
@@ -96,20 +96,17 @@ if uploaded_file:
 
             if lore_mode:
                 st.subheader("📚 Narrative")
+                st.markdown(generate_lore(summary, leverage, stress))
+
+            if narrator_mode:
                 if summary["hit"]:
-                    st.markdown(generate_lore(summary, leverage, stress))
-        if narrator_mode:
-            if summary["hit"]:
-                st.markdown(f"💀 *Day {summary['liq_day']}. The reckoning came swift. Liquidation struck like lightning.*")
-            else:
-                st.markdown("*🛡️ Your positions stood firm. No call from the void.*")
+                    st.markdown(
+                        f"💀 *Day {summary['liq_day']}. The reckoning came swift. Liquidation struck like lightning.*"
+                    )
                 else:
-                    st.markdown(generate_lore(summary, leverage, stress))
-        if narrator_mode:
-            if summary["hit"]:
-                st.markdown(f"💀 *Day {summary['liq_day']}. The reckoning came swift. Liquidation struck like lightning.*")
-            else:
-                st.markdown("*🛡️ Your positions stood firm. No call from the void.*")
+                    st.markdown(
+                        "*🛡️ Your positions stood firm. No call from the void.*"
+                    )
 
 else:
     st.info("👈 Upload a CSV file to begin.")
